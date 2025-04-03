@@ -17,7 +17,7 @@ class MemberCustomRepository {
                 Members(
                 id = it[MemberEntity.id].value,
                     email = it[MemberEntity.email],
-                    encryptPassword = it[MemberEntity.encryptPassword],
+                    encryptedPassword = it[MemberEntity.encryptedPassword],
                     name = it[MemberEntity.name],
                     isVerified = it[MemberEntity.isVerified]
                 )

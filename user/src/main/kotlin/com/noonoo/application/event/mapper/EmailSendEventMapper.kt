@@ -29,7 +29,7 @@ class EmailSendEventMapper {
             eventType = emailSendEvent.eventType,
             attributes = emailSendEvent.attributes,
             isSendMail = false,
-            createAt = Clock.System.now().toLocalDateTime(TimeZone.currentSystemDefault()),
+            createdAt = Clock.System.now().toLocalDateTime(TimeZone.currentSystemDefault()),
         )
     }
 

@@ -12,7 +12,7 @@ class EmailSendEventCollection(
     eventType: String,
     attributes: String,
     isSendMail: Boolean,
-    createAt: LocalDateTime,
+    createdAt: LocalDateTime,
 ) {
 
     @Id
@@ -37,7 +37,7 @@ class EmailSendEventCollection(
     var isSendMail: Boolean = isSendMail
         protected set
 
-    var createAt: LocalDateTime = createAt
+    var createdAt: LocalDateTime = createdAt
         protected set
 
 }
