@@ -1,0 +1,108 @@
+[versions]
+# kotlin
+kotlin = "2.1.0"
+exposed = "0.60.0"
+kotlinter = "5.0.1"
+kotlinxDatetime = "0.6.1"
+jacksonKotlin = "2.18.2"
+
+# spring
+springBoot = "3.4.4"
+springDependencyManagement = "1.1.7"
+springKafka = "3.3.4"
+
+# logging
+kotlinLogging = "7.0.0"
+logback = "1.5.15"
+slf4j = "2.0.16"
+
+# ksp
+ksp = "2.0.21-1.0.27"
+konvert = "3.2.2"
+
+# arrow
+arrow = "2.0.1"
+
+# coroutines
+kotlinxCoroutines = "1.10.1"
+
+# db
+h2 = "2.3.232"
+mysql = "8.0.33"
+
+[libraries]
+# kotlin
+kotlinGradlePlugin = { module = "org.jetbrains.kotlin.jvm:org.jetbrains.kotlin.jvm.gradle.plugin", version.ref = "kotlin" }
+kotlinMetadata = { module = "org.jetbrains.kotlin:kotlin-metadata-jvm", version.ref = "kotlin" }
+kotlinReflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlin" }
+kotlinterGradlePlugin = { module = "org.jmailen.kotlinter:org.jmailen.kotlinter.gradle.plugin", version.ref = "kotlinter" }
+kotlinxDatetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinxDatetime" }
+
+# jackson
+jacksonKotlin = { module = "com.fasterxml.jackson.module:jackson-module-kotlin", version.ref = "jacksonKotlin" }
+
+# spring
+springBootWeb = { module = "org.springframework.boot:spring-boot-starter-web", version.ref = "springBoot" }
+springBootValidation = { module = "org.springframework.boot:spring-boot-starter-validation", version.ref = "springBoot"}
+springBootActuator = { module = "org.springframework.boot:spring-boot-starter-actuator", version.ref = "springBoot" }
+springBootProcessor = { module = "org.springframework.boot:spring-boot-configuration-processor", version.ref = "springBoot" }
+springBootMongoDb = { module = "org.springframework.boot:spring-boot-starter-data-mongodb", version.ref = "springBoot" }
+springBootMongoDbDsl = { module = "com.github.inflearn:spring-data-mongodb-kotlin-dsl", version = "0.5.0" }
+springBootKafka = { module = "org.springframework.kafka:spring-kafka", version.ref = "springKafka" }
+springBootTest = { module = "org.springframework.boot:spring-boot-starter-test", version.ref = "springBoot" }
+springBootKafkaTest = { module = "org.springframework.kafka:spring-kafka-test", version.ref = "springKafka" }
+
+# orm
+springBootExposed = { module = "org.jetbrains.exposed:exposed-spring-boot-starter", version.ref = "exposed"}
+exposedCore = { module = "org.jetbrains.exposed:exposed-core", version.ref = "exposed" }
+exposedCrypt = { module = "org.jetbrains.exposed:exposed-crypt", version.ref = "exposed" }
+exposedDao = { module = "org.jetbrains.exposed:exposed-dao", version.ref = "exposed" }
+exposedJdbc = { module = "org.jetbrains.exposed:exposed-jdbc", version.ref = "exposed" }
+exposedDateTime = { module = "org.jetbrains.exposed:exposed-kotlin-datetime", version.ref = "exposed" }
+
+# konvert
+konvertAnnotation = { module = "io.mcarle:konvert-spring-annotations", version.ref = "konvert" }
+konvertInjector = { module = "io.mcarle:konvert-spring-injector", version.ref = "konvert" }
+konvertApi = { module = "io.mcarle:konvert-api", version.ref = "konvert" }
+konvertCore = { module = "io.mcarle:konvert", version.ref = "konvert" }
+
+# logging
+kotlinLogging = { module = "io.github.oshai:kotlin-logging-jvm", version.ref = "kotlinLogging" }
+slf4jApi = { module = "org.slf4j:slf4j-api", version.ref = "slf4j" }
+logbackClassic = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }
+
+# arrow
+arrowCore = { module = "io.arrow-kt:arrow-core", version.ref = "arrow" }
+arrowOptics = { module = "io.arrow-kt:arrow-optics", version.ref = "arrow" }
+arrowKsp = { module = "io.arrow-kt:arrow-optics-ksp-plugin", version.ref = "arrow" }
+
+# corutines
+kotlinxCoroutinesBom = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-bom", version.ref = "kotlinxCoroutines" }
+kotlinxCoroutinesCore = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core" }
+kotlinxCoroutinesSlf4j = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-slf4j" }
+
+# database
+h2 = { module = "com.h2database:h2", version.ref = "h2" }
+mysql = { module = "mysql:mysql-connector-java", version.ref = "mysql" }
+
+# encrypt
+bcrypt = { module = "at.favre.lib:bcrypt", version = "0.9.0" }
+
+[bundles]
+kotlin = ["kotlinMetadata", "kotlinReflect", "kotlinxDatetime", "jacksonKotlin"]
+springBoot = ["springBootWeb", "springBootValidation", "springBootActuator", "springBootProcessor", "springBootTest"]
+springBootKafka = [ "springBootKafka", "springBootKafkaTest" ]
+exposed = ["springBootExposed" , "exposedCore", "exposedCrypt", "exposedDao", "exposedJdbc", "exposedDateTime"]
+db = [ "h2", "mysql" ]
+konvert = [ "konvertAnnotation", "konvertApi" ]
+konvertKsp = [ "konvertInjector", "konvertCore" ]
+arrow = [ "arrowCore", "arrowOptics" ]
+mongodb = [ "springBootMongoDb", "springBootMongoDbDsl" ]
+kotlinLogging = ["kotlinLogging", "slf4jApi", "logbackClassic", "kotlinxCoroutinesSlf4j"]
+
+
+[plugins]
+kotlinPluginSpring = { id = "org.jetbrains.kotlin.plugin.spring", version.ref = "kotlin" }
+springBoot = { id = "org.springframework.boot", version.ref = "springBoot" }
+springDependencyManagement = { id = "io.spring.dependency-management", version.ref = "springDependencyManagement" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
