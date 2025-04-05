@@ -1,8 +1,8 @@
 package com.noonoo.email.application.service
 
-import com.noonoo.email.application.port.`in`.RegisterEmailUseCase
-import com.noonoo.email.application.port.out.EmailEventPort
-import com.noonoo.email.application.port.out.mapper.SignUpEmailMapper
+import com.noonoo.email.application.port.input.RegisterEmailUseCase
+import com.noonoo.email.application.port.output.EmailEventPort
+import com.noonoo.email.application.port.output.mapper.SignUpEmailMapper
 import com.noonoo.user.domain.collection.SignUpEmailSendMessage
 import org.springframework.stereotype.Service
 

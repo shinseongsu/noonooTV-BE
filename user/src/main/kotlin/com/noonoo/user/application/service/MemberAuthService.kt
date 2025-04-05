@@ -1,9 +1,9 @@
 package com.noonoo.user.application.service
 
-import com.noonoo.user.application.port.`in`.MemberAuthUseCase
-import com.noonoo.user.application.port.`in`.command.MemberSignUpCommand
-import com.noonoo.user.application.port.out.EmailVerificationPort
-import com.noonoo.user.application.port.out.MemberSignUpPort
+import com.noonoo.user.application.port.input.MemberAuthUseCase
+import com.noonoo.user.application.port.input.command.MemberSignUpCommand
+import com.noonoo.user.application.port.output.EmailVerificationPort
+import com.noonoo.user.application.port.output.MemberSignUpPort
 import com.noonoo.user.application.service.mapper.EmailSendEventMapper
 import com.noonoo.user.application.service.mapper.EmailVerificationMapper
 import com.noonoo.user.application.service.mapper.MemberMapper

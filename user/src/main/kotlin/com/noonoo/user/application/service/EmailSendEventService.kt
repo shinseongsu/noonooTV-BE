@@ -1,6 +1,6 @@
 package com.noonoo.user.application.service
 
-import com.noonoo.user.application.port.out.EmailEventPort
+import com.noonoo.user.application.port.output.EmailEventPort
 import com.noonoo.user.application.service.mapper.EmailSendEventMapper
 import com.noonoo.user.domain.collection.EmailSendEvent
 import org.springframework.scheduling.annotation.Async
