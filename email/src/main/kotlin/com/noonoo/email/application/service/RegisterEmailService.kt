@@ -12,10 +12,11 @@ class RegisterEmailService(
     private val signUpEmailMapper: SignUpEmailMapper
 ) : RegisterEmailUseCase {
     override fun signUpEmailSend(signUpEmailSendMessage: SignUpEmailSendMessage) {
-        emailEventPort
-            .findByMemberId(signUpEmailSendMessage.memberId)
-            ?.let { signUpEmailMapper.mapper(it, signUpEmailSendMessage.name) }
-            ?.run { emailEventPort.sendSignEmail(this) }
-            .run { emailEventPort.updateByEmail(signUpEmailSendMessage.email) }
+        val member = emailEventPort.findByMemberId(signUpEmailSendMessage.memberId)
+        val mappedEmail = member?.let { signUpEmailMapper.mapper(it, signUpEmailSendMessage.name) }
+        val emailSent = mappedEmail?.let { emailEventPort.sendSignEmail(it) }
+        if (emailSent != null) {
+            emailEventPort.updateByEmail(signUpEmailSendMessage.email)
+        }
     }
 }
