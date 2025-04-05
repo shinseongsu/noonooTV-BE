@@ -49,6 +49,9 @@ springBootProcessor = { module = "org.springframework.boot:spring-boot-configura
 springBootMongoDb = { module = "org.springframework.boot:spring-boot-starter-data-mongodb", version.ref = "springBoot" }
 springBootMongoDbDsl = { module = "com.github.inflearn:spring-data-mongodb-kotlin-dsl", version = "0.5.0" }
 springBootKafka = { module = "org.springframework.kafka:spring-kafka", version.ref = "springKafka" }
+springBootMail = { module = "org.springframework.boot:spring-boot-starter-mail", version.ref = "springBoot" }
+springBootFreeMarker = { module = "org.springframework.boot:spring-boot-starter-freemarker", version.ref = "springBoot" }
+
 springBootTest = { module = "org.springframework.boot:spring-boot-starter-test", version.ref = "springBoot" }
 springBootKafkaTest = { module = "org.springframework.kafka:spring-kafka-test", version.ref = "springKafka" }
 
@@ -92,6 +95,7 @@ bcrypt = { module = "at.favre.lib:bcrypt", version = "0.9.0" }
 kotlin = ["kotlinMetadata", "kotlinReflect", "kotlinxDatetime", "jacksonKotlin"]
 springBoot = ["springBootWeb", "springBootValidation", "springBootActuator", "springBootProcessor", "springBootTest"]
 springBootKafka = [ "springBootKafka", "springBootKafkaTest" ]
+springBootMail = ["springBootMail", "springBootFreeMarker"]
 exposed = ["springBootExposed" , "exposedCore", "exposedCrypt", "exposedDao", "exposedJdbc", "exposedDateTime"]
 db = [ "h2", "mysql" ]
 konvert = [ "konvertAnnotation", "konvertApi" ]
