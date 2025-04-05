@@ -16,7 +16,7 @@ class SignUpEmailClient(
     private val freemarkerConfig: freemarker.template.Configuration
 ) {
     fun sendSignUpEmail(signUpEmail: SignUpEmail) {
-        val imagePath = "asserts/img/logo.avif"
+        val imagePath = "assets/img/logo.avif"
         val imageBytes = Files.readAllBytes(ClassPathResource(imagePath).file.toPath())
         val base64Image = Base64.getEncoder().encodeToString(imageBytes)
 
