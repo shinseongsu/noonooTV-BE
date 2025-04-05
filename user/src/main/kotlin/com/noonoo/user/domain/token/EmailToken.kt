@@ -1,17 +1,17 @@
 package com.noonoo.user.domain.token
 
-import kotlinx.datetime.Clock
 import javax.crypto.Mac
 import javax.crypto.spec.SecretKeySpec
 import kotlin.random.Random
 import kotlin.time.Duration
+import kotlinx.datetime.Clock
 
 object EmailToken {
     val secret = "hello_noonoo"
 
     fun generate(
         email: String,
-        validDuration: Duration,
+        validDuration: Duration
     ): String {
         val expiresAt = Clock.System.now() + validDuration
         val randomPart = Random.Default.nextBytes(16).joinToString("") { "%02x".format(it) }
@@ -24,7 +24,7 @@ object EmailToken {
 
     private fun hmacSha256(
         data: String,
-        secret: String,
+        secret: String
     ): String {
         val hmac = Mac.getInstance("HmacSHA256")
         val keySpec = SecretKeySpec(secret.toByteArray(Charsets.UTF_8), "HmacSHA256")

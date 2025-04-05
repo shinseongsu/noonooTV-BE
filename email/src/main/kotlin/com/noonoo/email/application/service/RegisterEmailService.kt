@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service
 @Service
 class RegisterEmailService(
     private val emailEventPort: EmailEventPort,
-    private val signUpEmailMapper: SignUpEmailMapper,
+    private val signUpEmailMapper: SignUpEmailMapper
 ) : RegisterEmailUseCase {
     override fun signUpEmailSend(signUpEmailSendMessage: SignUpEmailSendMessage) {
         emailEventPort

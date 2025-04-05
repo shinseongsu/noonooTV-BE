@@ -24,7 +24,7 @@ class ExceptionAdviceController {
 
         return ExceptionResponse(
             code = "BAD_REQUEST",
-            message = message,
+            message = message
         )
     }
 }

@@ -30,7 +30,7 @@ class MemberRepository : ExposedCrudRepository<MemberEntity, Members> {
             email = row[MemberEntity.email],
             encryptedPassword = row[MemberEntity.encryptedPassword],
             name = row[MemberEntity.name],
-            isVerified = row[MemberEntity.isVerified],
+            isVerified = row[MemberEntity.isVerified]
         )
 
     override fun updateRow(domain: Members): MemberEntity.(UpdateStatement) -> Unit =

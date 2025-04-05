@@ -6,5 +6,5 @@ data class SignUpEmailSendMessage(
     val email: String,
     val token: String,
     val eventType: String,
-    val attributes: String,
+    val attributes: String
 )

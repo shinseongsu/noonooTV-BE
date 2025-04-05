@@ -9,13 +9,15 @@ import org.springframework.stereotype.Component
 @Component
 class EmailVerificationAdapter(
     private val emailVerificationCustomerRepository: EmailVerificationCustomerRepository,
-    private val emailVerificationRepository: EmailVerificationRepository,
+    private val emailVerificationRepository: EmailVerificationRepository
 ) : EmailVerificationPort {
     override fun findByToken(token: String): EmailVerification =
         emailVerificationCustomerRepository.findByToken(token)
             ?: throw IllegalArgumentException("인증 토큰이 존재하지 않습니다.")
 
-    override fun save(emailVerification: EmailVerification): EmailVerification = emailVerificationRepository.save(emailVerification)
+    override fun save(emailVerification: EmailVerification): EmailVerification =
+        emailVerificationRepository.save(emailVerification)
 
-    override fun update(emailVerification: EmailVerification): EmailVerification = emailVerificationRepository.update(emailVerification)
+    override fun update(emailVerification: EmailVerification): EmailVerification =
+        emailVerificationRepository.update(emailVerification)
 }

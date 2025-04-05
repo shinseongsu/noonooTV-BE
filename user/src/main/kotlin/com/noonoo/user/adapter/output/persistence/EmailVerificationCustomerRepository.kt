@@ -18,7 +18,7 @@ class EmailVerificationCustomerRepository {
                     token = it[EmailVerificationEntity.token],
                     expiresAt = it[EmailVerificationEntity.expiresAt],
                     verifiedAt = it[EmailVerificationEntity.verifiedAt],
-                    memberId = it[EmailVerificationEntity.memberId],
+                    memberId = it[EmailVerificationEntity.memberId]
                 )
             }.firstOrNull()
 }

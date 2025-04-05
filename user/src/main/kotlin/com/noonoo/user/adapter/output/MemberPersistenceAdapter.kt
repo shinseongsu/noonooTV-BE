@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component
 @Component
 class MemberPersistenceAdapter(
     private val memberRepository: MemberRepository,
-    private val memberCustomRepository: MemberCustomRepository,
+    private val memberCustomRepository: MemberCustomRepository
 ) : MemberSignUpPort {
     override fun save(members: Members): Members {
         if (existsByEmail(members.email)) {
@@ -19,7 +19,8 @@ class MemberPersistenceAdapter(
         return memberRepository.save(members)
     }
 
-    private fun existsByEmail(email: String): Boolean = memberCustomRepository.findByEmail(email) != null
+    private fun existsByEmail(email: String): Boolean =
+        memberCustomRepository.findByEmail(email) != null
 
     override fun findById(id: Long): Members =
         memberRepository.findById(id)

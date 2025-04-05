@@ -13,10 +13,10 @@ data class MemberSignUpRequest(
     val password: String?,
     @field:NotBlank(message = "{field.not_blank}")
     @field:Size(min = 2, max = 255, message = "{field.size}")
-    val name: String?,
+    val name: String?
 )
 
 data class MemberSignUpResponse(
     val code: String,
-    val message: String,
+    val message: String
 )

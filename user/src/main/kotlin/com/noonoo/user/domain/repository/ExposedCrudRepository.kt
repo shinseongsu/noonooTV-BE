@@ -41,7 +41,7 @@ interface ExposedCrudRepository<TABLE : LongIdTable, DOMAIN : BaseModel> : CrudR
         dbQuery {
             table.update(
                 where = { table.id eq domain.id!! },
-                body = updateRow(domain),
+                body = updateRow(domain)
             )
             domain
         }

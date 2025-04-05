@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component
 class SignUpEmailMapper {
     fun mapper(
         signUpEmailEvent: SignUpEmailEvent,
-        name: String,
+        name: String
     ): SignUpEmail =
         SignUpEmail(
             id = signUpEmailEvent.id,
@@ -16,6 +16,6 @@ class SignUpEmailMapper {
             token = signUpEmailEvent.token,
             name = name,
             email = signUpEmailEvent.email,
-            eventType = signUpEmailEvent.eventType,
+            eventType = signUpEmailEvent.eventType
         )
 }

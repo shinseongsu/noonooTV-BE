@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component
 class EmailSendEventMapper {
     fun mapper(
         members: Members,
-        token: String,
+        token: String
     ): EmailSendEvent =
         EmailSendEvent(
             memberId = members.id!!,
@@ -21,7 +21,7 @@ class EmailSendEventMapper {
             name = members.name,
             token = token,
             eventType = "SIGN_UP",
-            attributes = "회원가입 축하드립니다.",
+            attributes = "회원가입 축하드립니다."
         )
 
     fun mapper(emailSendEvent: EmailSendEvent): EmailSendEventCollection =
@@ -33,7 +33,7 @@ class EmailSendEventMapper {
             eventType = emailSendEvent.eventType,
             attributes = emailSendEvent.attributes,
             isSendMail = false,
-            createdAt = Clock.System.now().toLocalDateTime(TimeZone.currentSystemDefault()),
+            createdAt = Clock.System.now().toLocalDateTime(TimeZone.currentSystemDefault())
         )
 
     fun mapper(emailSendEventCollection: EmailSendEventCollection): SignUpEmailSendMessage =
@@ -43,6 +43,6 @@ class EmailSendEventMapper {
             token = emailSendEventCollection.token,
             email = emailSendEventCollection.email,
             eventType = emailSendEventCollection.eventType,
-            attributes = emailSendEventCollection.attributes,
+            attributes = emailSendEventCollection.attributes
         )
 }

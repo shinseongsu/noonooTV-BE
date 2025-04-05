@@ -3,11 +3,11 @@ package com.noonoo.user.application.service.mapper
 import com.noonoo.user.domain.model.EmailVerification
 import com.noonoo.user.domain.model.Members
 import com.noonoo.user.domain.token.EmailToken
+import kotlin.time.Duration
 import kotlinx.datetime.Clock
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.toLocalDateTime
 import org.springframework.stereotype.Component
-import kotlin.time.Duration
 
 @Component
 class EmailVerificationMapper {
@@ -22,7 +22,7 @@ class EmailVerificationMapper {
                     .plus(tokenValidity)
                     .toLocalDateTime(TimeZone.currentSystemDefault()),
             verifiedAt = null,
-            memberId = members.id!!,
+            memberId = members.id!!
         )
     }
 }

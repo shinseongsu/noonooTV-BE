@@ -11,7 +11,7 @@ data class EmailVerification(
     val expiresAt: LocalDateTime,
     val memberId: Long,
     var verifiedAt: LocalDateTime?,
-    override var id: Long? = null,
+    override var id: Long? = null
 ) : BaseModel {
     fun isExpired(): Boolean {
         val currentDate = Clock.System.now().toLocalDateTime(TimeZone.currentSystemDefault())

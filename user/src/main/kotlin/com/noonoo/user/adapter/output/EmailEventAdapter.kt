@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component
 @Component
 class EmailEventAdapter(
     private val emailEventRepository: EmailSendEventRepository,
-    private val registerEmailSendProducer: RegisterEmailSendProducer,
+    private val registerEmailSendProducer: RegisterEmailSendProducer
 ) : EmailEventPort {
     override fun save(emailSendEventCollection: EmailSendEventCollection) {
         emailEventRepository.save(emailSendEventCollection)

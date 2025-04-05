@@ -7,7 +7,7 @@ data class Members(
     val email: String,
     val encryptedPassword: String,
     val name: String,
-    var isVerified: Boolean = false,
+    var isVerified: Boolean = false
 ) : BaseModel {
     fun verify() {
         this.isVerified = true

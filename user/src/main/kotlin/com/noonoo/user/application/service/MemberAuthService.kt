@@ -18,7 +18,7 @@ class MemberAuthService(
     private val memberMapper: MemberMapper,
     private val emailVerificationMapper: EmailVerificationMapper,
     private val emailSendEventMapper: EmailSendEventMapper,
-    private val applicationEventPublisher: ApplicationEventPublisher,
+    private val applicationEventPublisher: ApplicationEventPublisher
 ) : MemberAuthUseCase {
     @Transactional
     override fun signUp(memberSignUpCommand: MemberSignUpCommand) {

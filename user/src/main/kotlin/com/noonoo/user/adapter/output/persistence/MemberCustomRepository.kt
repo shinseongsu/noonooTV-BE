@@ -18,7 +18,7 @@ class MemberCustomRepository {
                     email = it[MemberEntity.email],
                     encryptedPassword = it[MemberEntity.encryptedPassword],
                     name = it[MemberEntity.name],
-                    isVerified = it[MemberEntity.isVerified],
+                    isVerified = it[MemberEntity.isVerified]
                 )
             }.firstOrNull()
 }

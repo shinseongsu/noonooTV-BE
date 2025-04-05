@@ -7,12 +7,12 @@ import org.springframework.stereotype.Component
 
 @Component
 class MemberSignCommandMapper(
-    private val bcryptEncrypt: BcryptEncrypt,
+    private val bcryptEncrypt: BcryptEncrypt
 ) {
     fun mapper(memberSignUpRequest: MemberSignUpRequest): MemberSignUpCommand =
         MemberSignUpCommand(
             email = memberSignUpRequest.email!!,
             encryptedPassword = bcryptEncrypt.encrypt(memberSignUpRequest.password!!),
-            name = memberSignUpRequest.name!!,
+            name = memberSignUpRequest.name!!
         )
 }

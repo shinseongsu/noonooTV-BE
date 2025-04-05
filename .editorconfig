@@ -14,7 +14,6 @@ ij_formatter_on_tag = @formatter:on
 ij_formatter_tags_enabled = true
 ij_smart_tabs = false
 ij_wrap_on_typing = false
-disabled_rules=package-name,indent
 
 [*.java]
 indent_size = 4
@@ -348,6 +347,7 @@ ij_http-request_space_before_comma = true
 ij_http-request_spaces_around_assignment_operators = true
 
 [{*.kt,*.kts}]
+ktlint_standard_filename = disabled
 indent_size = 4
 tab_width = 4
 ij_continuation_indent_size = 8

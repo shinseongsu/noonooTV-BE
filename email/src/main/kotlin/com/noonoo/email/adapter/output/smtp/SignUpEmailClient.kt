@@ -1,19 +1,19 @@
 package com.noonoo.email.adapter.output.smtp
 
 import com.noonoo.email.domain.email.SignUpEmail
+import java.nio.charset.StandardCharsets
+import java.nio.file.Files
+import java.util.Base64
 import org.springframework.core.io.ClassPathResource
 import org.springframework.mail.javamail.JavaMailSender
 import org.springframework.mail.javamail.MimeMessageHelper
 import org.springframework.stereotype.Component
 import org.springframework.ui.freemarker.FreeMarkerTemplateUtils
-import java.nio.charset.StandardCharsets
-import java.nio.file.Files
-import java.util.Base64
 
 @Component
 class SignUpEmailClient(
     private val javaMailSender: JavaMailSender,
-    private val freemarkerConfig: freemarker.template.Configuration,
+    private val freemarkerConfig: freemarker.template.Configuration
 ) {
     fun sendSignUpEmail(signUpEmail: SignUpEmail) {
         val imagePath = "asserts/img/logo.avif"
@@ -25,7 +25,7 @@ class SignUpEmailClient(
                 "logo" to "data:image/avif;base64,$base64Image",
                 "url" to "http://localhost:8080/api/auth/signup/verify/${signUpEmail.token}",
                 "name" to signUpEmail.name,
-                "email" to signUpEmail.email,
+                "email" to signUpEmail.email
             )
 
         val mimeMessage = javaMailSender.createMimeMessage()

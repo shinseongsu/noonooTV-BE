@@ -10,9 +10,10 @@ import org.springframework.stereotype.Component
 @Component
 class EmailEventAdapter(
     private val emailEventRepository: EmailEventRepository,
-    private val signUpEmailClient: SignUpEmailClient,
+    private val signUpEmailClient: SignUpEmailClient
 ) : EmailEventPort {
-    override fun findByMemberId(memberId: Long): SignUpEmailEvent? = emailEventRepository.findByMemberId(memberId)
+    override fun findByMemberId(memberId: Long): SignUpEmailEvent? =
+        emailEventRepository.findByMemberId(memberId)
 
     override fun updateByEmail(email: String) {
         emailEventRepository.updateByEmail(email)

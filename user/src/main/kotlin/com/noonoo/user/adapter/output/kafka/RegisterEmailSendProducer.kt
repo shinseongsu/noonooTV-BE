@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component
 
 @Component
 class RegisterEmailSendProducer(
-    private val kafkaTemplate: KafkaTemplate<String, SignUpEmailSendMessage>,
+    private val kafkaTemplate: KafkaTemplate<String, SignUpEmailSendMessage>
 ) {
     protected val log: KLogger = KotlinLogging.logger { this.javaClass.name }
 

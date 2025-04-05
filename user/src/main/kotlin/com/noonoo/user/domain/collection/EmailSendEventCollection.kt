@@ -13,7 +13,7 @@ class EmailSendEventCollection(
     eventType: String,
     attributes: String,
     isSendMail: Boolean,
-    createdAt: LocalDateTime,
+    createdAt: LocalDateTime
 ) {
     @Id
     var id: String? = null

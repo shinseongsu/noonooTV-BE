@@ -10,7 +10,7 @@ import org.springframework.transaction.event.TransactionalEventListener
 @Component
 class EmailSendEventService(
     private val emailEventPort: EmailEventPort,
-    private val emailSendEventMapper: EmailSendEventMapper,
+    private val emailSendEventMapper: EmailSendEventMapper
 ) {
     @Async
     @TransactionalEventListener

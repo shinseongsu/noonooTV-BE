@@ -19,12 +19,12 @@ import org.springframework.web.bind.annotation.RestController
 @RequestMapping("/api/auth")
 class MemberAuthController(
     private val memberAuthUseCase: MemberAuthUseCase,
-    private val memberSignUpCommandMapper: MemberSignCommandMapper,
+    private val memberSignUpCommandMapper: MemberSignCommandMapper
 ) {
     @PostMapping("/signup")
     @ResponseStatus(HttpStatus.CREATED)
     fun signUp(
-        @Valid @RequestBody memberSignUpRequest: MemberSignUpRequest,
+        @Valid @RequestBody memberSignUpRequest: MemberSignUpRequest
     ): MemberSignUpResponse {
         memberSignUpCommandMapper
             .mapper(memberSignUpRequest)
@@ -32,20 +32,20 @@ class MemberAuthController(
 
         return MemberSignUpResponse(
             code = "SUCCESS",
-            message = "회원가입 성공 되었습니다.",
+            message = "회원가입 성공 되었습니다."
         )
     }
 
     @GetMapping("/signup/verify/{token}")
     @ResponseStatus(HttpStatus.OK)
     fun verifyEmail(
-        @PathVariable token: String,
+        @PathVariable token: String
     ): MemberVerifyResponse {
         memberAuthUseCase.verifyEmail(token)
 
         return MemberVerifyResponse(
             code = "SUCCESS",
-            message = "이메일 인증 성공 되었습니다.",
+            message = "이메일 인증 성공 되었습니다."
         )
     }
 }

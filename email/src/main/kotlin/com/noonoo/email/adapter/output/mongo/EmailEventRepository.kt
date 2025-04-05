@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository
 
 @Repository
 class EmailEventRepository(
-    private val mongoTemplate: MongoTemplate,
+    private val mongoTemplate: MongoTemplate
 ) {
     fun findByMemberId(memberId: Long): SignUpEmailEvent? {
         val query =
@@ -30,7 +30,7 @@ class EmailEventRepository(
                     email = it.email,
                     eventType = it.eventType,
                     token = it.token,
-                    attributes = it.attributes,
+                    attributes = it.attributes
                 )
             }
     }

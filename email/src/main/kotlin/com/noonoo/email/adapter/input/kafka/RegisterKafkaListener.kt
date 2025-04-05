@@ -8,15 +8,15 @@ import org.springframework.stereotype.Component
 
 @Component
 class RegisterKafkaListener(
-    private val registerEmailUseCase: RegisterEmailUseCase,
+    private val registerEmailUseCase: RegisterEmailUseCase
 ) {
     @KafkaListener(
         topics = [TOPIC],
         groupId = GROUP_ID,
-        containerFactory = "kafkaListenerContainerFactory",
+        containerFactory = "kafkaListenerContainerFactory"
     )
     fun signUpListen(
-        @Payload message: SignUpEmailSendMessage,
+        @Payload message: SignUpEmailSendMessage
     ) {
         registerEmailUseCase.signUpEmailSend(message)
     }
