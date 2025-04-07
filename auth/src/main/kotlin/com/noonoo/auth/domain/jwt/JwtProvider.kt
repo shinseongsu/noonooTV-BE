@@ -2,7 +2,7 @@ package com.noonoo.auth.domain.jwt
 
 import io.jsonwebtoken.Jwts
 import io.jsonwebtoken.security.Keys
-import java.util.*
+import java.util.Date
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Component
 
