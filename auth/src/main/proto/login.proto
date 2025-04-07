@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.noonoo.auth.domain.message";
+option java_outer_classname = "LoginProto";
+
+service Login {
+  rpc login (LoginRequest) returns (LoginResponse) {
+  }
+}
+
+message LoginRequest {
+  string email = 1;
+  string password = 2;
+}
+
+message LoginResponse {
+  string code = 1;
+  string message = 2;
+  string accessToken = 3;
+  string refreshToken = 4;
+}
