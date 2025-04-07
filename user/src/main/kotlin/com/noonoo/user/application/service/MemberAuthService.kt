@@ -1,9 +1,11 @@
 package com.noonoo.user.application.service
 
-import com.noonoo.user.application.port.input.MemberAuthUseCase
+import com.noonoo.user.application.port.input.MemberSignUpUseCase
 import com.noonoo.user.application.port.input.command.MemberSignUpCommand
-import com.noonoo.user.application.port.output.EmailVerificationPort
-import com.noonoo.user.application.port.output.MemberSignUpPort
+import com.noonoo.user.application.port.output.EmailVerificationCommandPort
+import com.noonoo.user.application.port.output.EmailVerificationQueryPort
+import com.noonoo.user.application.port.output.MemberCommandPort
+import com.noonoo.user.application.port.output.MemberQueryPort
 import com.noonoo.user.application.service.mapper.EmailSendEventMapper
 import com.noonoo.user.application.service.mapper.EmailVerificationMapper
 import com.noonoo.user.application.service.mapper.MemberMapper
@@ -13,24 +15,26 @@ import org.springframework.transaction.annotation.Transactional
 
 @Service
 class MemberAuthService(
-    private val memberSignUpPort: MemberSignUpPort,
-    private val emailVerificationPort: EmailVerificationPort,
+    private val memberCommandPort: MemberCommandPort,
+    private val memberQueryPort: MemberQueryPort,
+    private val emailVerificationCommandPort: EmailVerificationCommandPort,
+    private val emailVerificationQueryPort: EmailVerificationQueryPort,
     private val memberMapper: MemberMapper,
     private val emailVerificationMapper: EmailVerificationMapper,
     private val emailSendEventMapper: EmailSendEventMapper,
     private val applicationEventPublisher: ApplicationEventPublisher
-) : MemberAuthUseCase {
+) : MemberSignUpUseCase {
     @Transactional
     override fun signUp(memberSignUpCommand: MemberSignUpCommand) {
         val members =
             memberMapper
                 .mapper(memberSignUpCommand)
-                .let { memberSignUpPort.save(it) }
+                .let { memberCommandPort.save(it) }
 
         val emailVerification =
             emailVerificationMapper
                 .mapper(members)
-                .let { emailVerificationPort.save(it) }
+                .let { emailVerificationCommandPort.save(it) }
 
         emailSendEventMapper
             .mapper(members, emailVerification.token)
@@ -41,8 +45,8 @@ class MemberAuthService(
 
     @Transactional
     override fun verifyEmail(token: String) {
-        val emailVerification = emailVerificationPort.findByToken(token)
-        val members = memberSignUpPort.findById(emailVerification.memberId)
+        val emailVerification = emailVerificationQueryPort.findByToken(token)
+        val members = memberQueryPort.findById(emailVerification.memberId)
 
         if (emailVerification.verifiedAt != null) {
             throw IllegalArgumentException("이미 인증된 이메일 입니다.")
@@ -54,7 +58,7 @@ class MemberAuthService(
         emailVerification.verify()
         members.verify()
 
-        memberSignUpPort.update(members)
-        emailVerificationPort.update(emailVerification)
+        memberCommandPort.update(members)
+        emailVerificationCommandPort.update(emailVerification)
     }
 }
