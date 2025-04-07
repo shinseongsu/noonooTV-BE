@@ -13,5 +13,6 @@ dependencyResolutionManagement {
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 include(
     "user",
-    "email"
+    "email",
+    "auth"
 )
