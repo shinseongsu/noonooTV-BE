@@ -2,7 +2,7 @@ package com.noonoo.user.domain.model
 
 import com.noonoo.user.domain.repository.BaseModel
 
-data class Members(
+data class MembersModel(
     override var id: Long? = null,
     val email: String,
     val encryptedPassword: String,

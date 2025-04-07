@@ -3,7 +3,7 @@ package com.noonoo.user.adapter.input.web
 import com.noonoo.user.adapter.input.web.dto.MemberSignUpRequest
 import com.noonoo.user.adapter.input.web.dto.MemberSignUpResponse
 import com.noonoo.user.adapter.input.web.dto.MemberVerifyResponse
-import com.noonoo.user.application.port.input.MemberAuthUseCase
+import com.noonoo.user.application.port.input.MemberSignUpUseCase
 import com.noonoo.user.application.port.input.mapper.MemberSignCommandMapper
 import jakarta.validation.Valid
 import org.springframework.http.HttpStatus
@@ -16,19 +16,19 @@ import org.springframework.web.bind.annotation.ResponseStatus
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-@RequestMapping("/api/auth")
-class MemberAuthController(
-    private val memberAuthUseCase: MemberAuthUseCase,
+@RequestMapping("/api/member/signup")
+class MemberSignUpController(
+    private val memberSignUpUseCase: MemberSignUpUseCase,
     private val memberSignUpCommandMapper: MemberSignCommandMapper
 ) {
-    @PostMapping("/signup")
+    @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     fun signUp(
         @Valid @RequestBody memberSignUpRequest: MemberSignUpRequest
     ): MemberSignUpResponse {
         memberSignUpCommandMapper
             .mapper(memberSignUpRequest)
-            .let(memberAuthUseCase::signUp)
+            .let(memberSignUpUseCase::signUp)
 
         return MemberSignUpResponse(
             code = "SUCCESS",
@@ -36,12 +36,12 @@ class MemberAuthController(
         )
     }
 
-    @GetMapping("/signup/verify/{token}")
+    @GetMapping("/verify/{token}")
     @ResponseStatus(HttpStatus.OK)
     fun verifyEmail(
         @PathVariable token: String
     ): MemberVerifyResponse {
-        memberAuthUseCase.verifyEmail(token)
+        memberSignUpUseCase.verifyEmail(token)
 
         return MemberVerifyResponse(
             code = "SUCCESS",
