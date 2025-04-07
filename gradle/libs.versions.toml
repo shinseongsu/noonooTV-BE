@@ -10,11 +10,25 @@ jacksonKotlin = "2.18.2"
 springBoot = "3.4.4"
 springDependencyManagement = "1.1.7"
 springKafka = "3.3.4"
+springBootgRpcDependencyManagement = "0.7.0-SNAPSHOT"
+springBootgRpc = "0.6.0"
+
+# graalvm
+graalvm = "0.10.3"
+
+# grpc
+grpcPlugin = "0.9.4"
+grpc = "1.71.0"
+kotlinGrpc = "1.4.1"
+protobufKotlin = "4.30.2"
 
 # logging
 kotlinLogging = "7.0.0"
 logback = "1.5.15"
 slf4j = "2.0.16"
+
+# jwt
+jwt = "0.12.6"
 
 # ksp
 ksp = "2.0.21-1.0.27"
@@ -51,6 +65,10 @@ springBootMongoDbDsl = { module = "com.github.inflearn:spring-data-mongodb-kotli
 springBootKafka = { module = "org.springframework.kafka:spring-kafka", version.ref = "springKafka" }
 springBootMail = { module = "org.springframework.boot:spring-boot-starter-mail", version.ref = "springBoot" }
 springBootFreeMarker = { module = "org.springframework.boot:spring-boot-starter-freemarker", version.ref = "springBoot" }
+springBootWebflux = { module = "org.springframework.boot:spring-boot-starter-webflux", version.ref = "springBoot"}
+springBootGrpc = { module = "org.springframework.grpc:spring-grpc-spring-boot-starter", version.ref = "springBootgRpc" }
+springBootGrpcBom = { module = "org.springframework.grpc:spring-grpc-dependencies", version.ref = "springBootgRpcDependencyManagement" }
+springBootRedisReactive = { module = "org.springframework.boot:spring-boot-starter-data-redis-reactive", version.ref = "springBoot" }
 
 springBootTest = { module = "org.springframework.boot:spring-boot-starter-test", version.ref = "springBoot" }
 springBootKafkaTest = { module = "org.springframework.kafka:spring-kafka-test", version.ref = "springKafka" }
@@ -69,6 +87,11 @@ konvertInjector = { module = "io.mcarle:konvert-spring-injector", version.ref = 
 konvertApi = { module = "io.mcarle:konvert-api", version.ref = "konvert" }
 konvertCore = { module = "io.mcarle:konvert", version.ref = "konvert" }
 
+# jwt
+jwtApi = { module = "io.jsonwebtoken:jjwt-api", version.ref = "jwt" }
+jwtImpl = { module = "io.jsonwebtoken:jjwt-impl", version.ref = "jwt" }
+jwtJackson = { module = "io.jsonwebtoken:jjwt-jackson", version.ref = "jwt" }
+
 # logging
 kotlinLogging = { module = "io.github.oshai:kotlin-logging-jvm", version.ref = "kotlinLogging" }
 slf4jApi = { module = "org.slf4j:slf4j-api", version.ref = "slf4j" }
@@ -81,8 +104,14 @@ arrowKsp = { module = "io.arrow-kt:arrow-optics-ksp-plugin", version.ref = "arro
 
 # corutines
 kotlinxCoroutinesBom = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-bom", version.ref = "kotlinxCoroutines" }
-kotlinxCoroutinesCore = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core" }
-kotlinxCoroutinesSlf4j = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-slf4j" }
+kotlinxCoroutinesCore = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinxCoroutines" }
+kotlinxCoroutinesReactor = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-reactor", version.ref = "kotlinxCoroutines" }
+kotlinxCoroutinesSlf4j = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-slf4j", version.ref = "kotlinxCoroutines" }
+
+# grpc
+grpc = { module = "io.grpc:grpc-services", version.ref = "grpc" }
+kotlinGrpc = { module = "io.grpc:grpc-kotlin-stub", version.ref = "kotlinGrpc" }
+protobufKotlin = { module = "com.google.protobuf:protobuf-kotlin", version.ref = "protobufKotlin" }
 
 # database
 h2 = { module = "com.h2database:h2", version.ref = "h2" }
@@ -100,9 +129,13 @@ exposed = ["springBootExposed" , "exposedCore", "exposedCrypt", "exposedDao", "e
 db = [ "h2", "mysql" ]
 konvert = [ "konvertAnnotation", "konvertApi" ]
 konvertKsp = [ "konvertInjector", "konvertCore" ]
+jwt = [ "jwtApi", ]
+jwtRuntime = [ "jwtImpl", "jwtJackson" ]
+coroutines = [ "kotlinxCoroutinesBom", "kotlinxCoroutinesCore", "kotlinxCoroutinesReactor" ]
 arrow = [ "arrowCore", "arrowOptics" ]
 mongodb = [ "springBootMongoDb", "springBootMongoDbDsl" ]
 kotlinLogging = ["kotlinLogging", "slf4jApi", "logbackClassic", "kotlinxCoroutinesSlf4j"]
+grpc = [ "grpc", "kotlinGrpc", "protobufKotlin", "springBootGrpc" ]
 
 
 [plugins]
@@ -110,3 +143,5 @@ kotlinPluginSpring = { id = "org.jetbrains.kotlin.plugin.spring", version.ref = 
 springBoot = { id = "org.springframework.boot", version.ref = "springBoot" }
 springDependencyManagement = { id = "io.spring.dependency-management", version.ref = "springDependencyManagement" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+protobuf = { id = "com.google.protobuf", version.ref = "grpcPlugin" }
+graalvm = { id = "org.graalvm.buildtools.native", version.ref = "graalvm" }
