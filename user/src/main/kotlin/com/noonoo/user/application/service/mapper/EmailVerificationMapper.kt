@@ -1,7 +1,7 @@
 package com.noonoo.user.application.service.mapper
 
-import com.noonoo.user.domain.model.EmailVerification
-import com.noonoo.user.domain.model.Members
+import com.noonoo.user.domain.model.EmailVerificationModel
+import com.noonoo.user.domain.model.MembersModel
 import com.noonoo.user.domain.token.EmailToken
 import kotlin.time.Duration
 import kotlinx.datetime.Clock
@@ -11,10 +11,10 @@ import org.springframework.stereotype.Component
 
 @Component
 class EmailVerificationMapper {
-    fun mapper(members: Members): EmailVerification {
+    fun mapper(members: MembersModel): EmailVerificationModel {
         val tokenValidity = Duration.parse("PT30M")
 
-        return EmailVerification(
+        return EmailVerificationModel(
             token = EmailToken.generate(members.email, tokenValidity),
             expiresAt =
                 Clock.System

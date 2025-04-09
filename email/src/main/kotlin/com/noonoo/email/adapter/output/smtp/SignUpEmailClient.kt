@@ -23,7 +23,7 @@ class SignUpEmailClient(
         val data =
             mapOf(
                 "logo" to "data:image/avif;base64,$base64Image",
-                "url" to "http://localhost:8080/api/auth/signup/verify/${signUpEmail.token}",
+                "url" to "http://localhost:8080/api/member/signup/verify/${signUpEmail.token}",
                 "name" to signUpEmail.name,
                 "email" to signUpEmail.email
             )

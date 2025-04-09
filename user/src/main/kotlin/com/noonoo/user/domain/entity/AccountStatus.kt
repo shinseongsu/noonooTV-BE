@@ -1,4 +1,4 @@
-package com.noonoo.user.domain.type
+package com.noonoo.user.domain.entity
 
 enum class AccountStatus(
     private val description: String

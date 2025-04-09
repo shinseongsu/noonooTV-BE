@@ -1,6 +1,6 @@
 package com.noonoo.email.adapter.input.kafka
 
-import com.noonoo.email.application.port.input.RegisterEmailUseCase
+import com.noonoo.email.application.port.input.EmailSignUpUseCase
 import com.noonoo.user.domain.collection.SignUpEmailSendMessage
 import org.springframework.kafka.annotation.KafkaListener
 import org.springframework.messaging.handler.annotation.Payload
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component
 
 @Component
 class RegisterKafkaListener(
-    private val registerEmailUseCase: RegisterEmailUseCase
+    private val registerEmailUseCase: EmailSignUpUseCase
 ) {
     @KafkaListener(
         topics = [TOPIC],

@@ -6,7 +6,7 @@ import kotlinx.datetime.LocalDateTime
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.toLocalDateTime
 
-data class EmailVerification(
+data class EmailVerificationModel(
     val token: String,
     val expiresAt: LocalDateTime,
     val memberId: Long,

@@ -3,7 +3,7 @@ package com.noonoo.user.application.service.mapper
 import com.noonoo.user.domain.collection.EmailSendEvent
 import com.noonoo.user.domain.collection.EmailSendEventCollection
 import com.noonoo.user.domain.collection.SignUpEmailSendMessage
-import com.noonoo.user.domain.model.Members
+import com.noonoo.user.domain.model.MembersModel
 import kotlinx.datetime.Clock
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.toLocalDateTime
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component
 @Component
 class EmailSendEventMapper {
     fun mapper(
-        members: Members,
+        members: MembersModel,
         token: String
     ): EmailSendEvent =
         EmailSendEvent(
