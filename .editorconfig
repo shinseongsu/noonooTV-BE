@@ -520,4 +520,4 @@ indent_style = unset
 indent_size = unset
 max_line_length = unset
 ktlint_standard_filename = disabled
-ktlint_disabled_rules=multiline-expression-wrapping
+disabled_rules=multiline-expression-wrapping
