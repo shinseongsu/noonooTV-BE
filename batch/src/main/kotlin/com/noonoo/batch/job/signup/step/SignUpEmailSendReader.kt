@@ -1,7 +1,7 @@
 package com.noonoo.batch.job.signup.step
 
 import com.noonoo.batch.domain.collection.EmailSendEventCollection
-import com.noonoo.batch.support.mongodb.MongoQueryItemFactory.MongoReactiveCursorItemReader
+import com.noonoo.batch.support.mongodb.MongoQueryItemFactory.mongoReactiveCursorItemReader
 import com.noonoo.batch.support.mongodb.MongoQueryItemReader
 import org.springframework.context.annotation.Configuration
 import org.springframework.data.mongodb.core.ReactiveMongoTemplate
@@ -12,7 +12,7 @@ class SignUpEmailSendReader(
     private val mongoTemplate: ReactiveMongoTemplate
 ) {
     fun signUpEmailSendReader(): MongoQueryItemReader<EmailSendEventCollection> =
-        MongoReactiveCursorItemReader(
+        mongoReactiveCursorItemReader(
             mongoTemplate = mongoTemplate
         ) {
             where("eventType")

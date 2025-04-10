@@ -4,7 +4,7 @@ import org.springframework.data.mongodb.core.ReactiveMongoTemplate
 import org.springframework.data.mongodb.core.query.Criteria
 
 object MongoQueryItemFactory {
-    inline fun <reified T> MongoReactiveCursorItemReader(
+    inline fun <reified T> mongoReactiveCursorItemReader(
         mongoTemplate: ReactiveMongoTemplate,
         noinline query: Criteria.() -> Unit
     ): MongoQueryItemReader<T> =
