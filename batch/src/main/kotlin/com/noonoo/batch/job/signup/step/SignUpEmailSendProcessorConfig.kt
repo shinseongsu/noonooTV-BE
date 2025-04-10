@@ -22,9 +22,8 @@ class SignUpEmailSendProcessorConfig(
         return asyncItemProcessor
     }
 
-    fun signUpEmailSendProcessor():
-            ItemProcessor<EmailSendEventCollection, SignUpEmailSendMessage>
-        = ItemProcessor { item ->
+    fun signUpEmailSendProcessor(): ItemProcessor<EmailSendEventCollection, SignUpEmailSendMessage> =
+        ItemProcessor { item ->
             SignUpEmailSendMessage(
                 memberId = item.memberId,
                 name = item.name,
