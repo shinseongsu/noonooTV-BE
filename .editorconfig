@@ -347,7 +347,6 @@ ij_http-request_space_before_comma = true
 ij_http-request_spaces_around_assignment_operators = true
 
 [{*.kt,*.kts}]
-ktlint_standard_filename = disabled
 indent_size = 4
 tab_width = 4
 ij_continuation_indent_size = 8
@@ -520,4 +519,3 @@ ij_yaml_spaces_within_brackets = true
 indent_style = unset
 indent_size = unset
 max_line_length = unset
-ktlint_disabled_rules = all
