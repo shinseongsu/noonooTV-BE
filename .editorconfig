@@ -519,3 +519,4 @@ ij_yaml_spaces_within_brackets = true
 indent_style = unset
 indent_size = unset
 max_line_length = unset
+ktlint_standard_filename = disabled

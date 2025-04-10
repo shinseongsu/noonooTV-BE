@@ -11,8 +11,7 @@ class EmailEventAdapter(
     private val emailEventRepository: EmailEventRepository
 ) : EmailEventCommandPort,
     EmailEventQueryPort {
-    override fun findByMemberId(memberId: Long): SignUpEmailEvent? =
-        emailEventRepository.findByMemberId(memberId)
+    override fun findByMemberId(memberId: Long): SignUpEmailEvent? = emailEventRepository.findByMemberId(memberId)
 
     override fun updateByEmail(email: String) {
         emailEventRepository.updateByEmail(email)
