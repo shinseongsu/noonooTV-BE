@@ -14,5 +14,6 @@ enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 include(
     "user",
     "email",
-    "auth"
+    "auth",
+    "batch"
 )

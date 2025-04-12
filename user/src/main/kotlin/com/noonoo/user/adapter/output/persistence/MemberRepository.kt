@@ -13,9 +13,7 @@ import org.springframework.stereotype.Repository
 class MemberRepository : ExposedCrudRepository<MemberEntity, MembersModel> {
     override val table: MemberEntity = MemberEntity
 
-    override fun toRow(
-        domain: MembersModel
-    ): MemberEntity.(InsertStatement<EntityID<Long>>) -> Unit =
+    override fun toRow(domain: MembersModel): MemberEntity.(InsertStatement<EntityID<Long>>) -> Unit =
         {
             if (domain.id != null) {
                 it[id] = domain.id!!

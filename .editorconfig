@@ -6,7 +6,7 @@ end_of_line = lf
 indent_size = 2
 indent_style = space
 insert_final_newline = true
-max_line_length = 100
+max_line_length = 120
 tab_width = 2
 ij_continuation_indent_size = 4
 ij_formatter_off_tag = @formatter:off
@@ -347,7 +347,6 @@ ij_http-request_space_before_comma = true
 ij_http-request_spaces_around_assignment_operators = true
 
 [{*.kt,*.kts}]
-ktlint_standard_filename = disabled
 indent_size = 4
 tab_width = 4
 ij_continuation_indent_size = 8
@@ -515,3 +514,10 @@ ij_yaml_sequence_on_new_line = false
 ij_yaml_space_before_colon = false
 ij_yaml_spaces_within_braces = true
 ij_yaml_spaces_within_brackets = true
+
+[**/build/**{*.kt,*.kts}]
+indent_style = unset
+indent_size = unset
+max_line_length = unset
+ktlint_standard_filename = disabled
+disabled_rules=multiline-expression-wrapping

@@ -12,6 +12,7 @@ springDependencyManagement = "1.1.7"
 springKafka = "3.3.4"
 springBootgRpcDependencyManagement = "0.7.0-SNAPSHOT"
 springBootgRpc = "0.6.0"
+springBatch = "5.2.2"
 
 # graalvm
 graalvm = "0.10.3"
@@ -62,6 +63,7 @@ springBootActuator = { module = "org.springframework.boot:spring-boot-starter-ac
 springBootProcessor = { module = "org.springframework.boot:spring-boot-configuration-processor", version.ref = "springBoot" }
 springBootMongoDb = { module = "org.springframework.boot:spring-boot-starter-data-mongodb", version.ref = "springBoot" }
 springBootMongoDbDsl = { module = "com.github.inflearn:spring-data-mongodb-kotlin-dsl", version = "0.5.0" }
+springBootReactiveMognoDb = { module = "org.springframework.boot:spring-boot-starter-data-mongodb-reactive", version.ref = "springBoot" }
 springBootKafka = { module = "org.springframework.kafka:spring-kafka", version.ref = "springKafka" }
 springBootMail = { module = "org.springframework.boot:spring-boot-starter-mail", version.ref = "springBoot" }
 springBootFreeMarker = { module = "org.springframework.boot:spring-boot-starter-freemarker", version.ref = "springBoot" }
@@ -69,9 +71,12 @@ springBootWebflux = { module = "org.springframework.boot:spring-boot-starter-web
 springBootGrpc = { module = "org.springframework.grpc:spring-grpc-spring-boot-starter", version.ref = "springBootgRpc" }
 springBootGrpcBom = { module = "org.springframework.grpc:spring-grpc-dependencies", version.ref = "springBootgRpcDependencyManagement" }
 springBootRedisReactive = { module = "org.springframework.boot:spring-boot-starter-data-redis-reactive", version.ref = "springBoot" }
+springBatch = { module = "org.springframework.boot:spring-boot-starter-batch", version.ref = "springBoot" }
+springBatchIntegration = { module = "org.springframework.batch:spring-batch-integration", version.ref = "springBatch" }
 
 springBootTest = { module = "org.springframework.boot:spring-boot-starter-test", version.ref = "springBoot" }
 springBootKafkaTest = { module = "org.springframework.kafka:spring-kafka-test", version.ref = "springKafka" }
+springBatchTest = { module = "org.springframework.batch:spring-batch-test", version.ref = "springBatch" }
 
 # orm
 springBootExposed = { module = "org.jetbrains.exposed:exposed-spring-boot-starter", version.ref = "exposed"}
@@ -125,6 +130,7 @@ kotlin = ["kotlinMetadata", "kotlinReflect", "kotlinxDatetime", "jacksonKotlin"]
 springBoot = ["springBootWeb", "springBootValidation", "springBootActuator", "springBootProcessor", "springBootTest"]
 springBootKafka = [ "springBootKafka", "springBootKafkaTest" ]
 springBootMail = ["springBootMail", "springBootFreeMarker"]
+springBatch = [ "springBatch", "springBatchIntegration", "springBatchTest" ]
 exposed = ["springBootExposed" , "exposedCore", "exposedCrypt", "exposedDao", "exposedJdbc", "exposedDateTime"]
 db = [ "h2", "mysql" ]
 konvert = [ "konvertAnnotation", "konvertApi" ]
@@ -133,7 +139,7 @@ jwt = [ "jwtApi", ]
 jwtRuntime = [ "jwtImpl", "jwtJackson" ]
 coroutines = [ "kotlinxCoroutinesBom", "kotlinxCoroutinesCore", "kotlinxCoroutinesReactor" ]
 arrow = [ "arrowCore", "arrowOptics" ]
-mongodb = [ "springBootMongoDb", "springBootMongoDbDsl" ]
+mongodb = [ "springBootMongoDb", "springBootMongoDbDsl", "springBootReactiveMognoDb" ]
 kotlinLogging = ["kotlinLogging", "slf4jApi", "logbackClassic", "kotlinxCoroutinesSlf4j"]
 grpc = [ "grpc", "kotlinGrpc", "protobufKotlin", "springBootGrpc" ]
 

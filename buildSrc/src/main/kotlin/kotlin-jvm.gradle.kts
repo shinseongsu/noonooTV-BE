@@ -1,6 +1,7 @@
 package buildsrc.convention
 
 import org.gradle.api.tasks.testing.logging.TestLogEvent
+import org.jetbrains.kotlin.gradle.targets.js.internal.filterClassName
 import org.jmailen.gradle.kotlinter.tasks.InstallPreCommitHookTask
 import org.jmailen.gradle.kotlinter.tasks.InstallPrePushHookTask
 
@@ -11,6 +12,10 @@ plugins {
 
 kotlin {
     jvmToolchain(21)
+}
+
+tasks.lintKotlinMain {
+    exclude("**/build/**")
 }
 
 tasks.withType<Test>().configureEach {

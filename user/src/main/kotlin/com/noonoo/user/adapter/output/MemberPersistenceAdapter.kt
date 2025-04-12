@@ -17,8 +17,7 @@ class MemberPersistenceAdapter(
         memberRepository.findById(id)
             ?: throw IllegalArgumentException("존재하지 않는 이메일 입니다.")
 
-    override fun findByEmail(email: String): MembersModel? =
-        memberCustomRepository.findByEmail(email)
+    override fun findByEmail(email: String): MembersModel? = memberCustomRepository.findByEmail(email)
 
     override fun save(members: MembersModel): MembersModel {
         if (this.findByEmail(members.email) != null) {

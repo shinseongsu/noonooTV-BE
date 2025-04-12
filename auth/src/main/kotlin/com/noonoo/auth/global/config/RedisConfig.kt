@@ -12,9 +12,7 @@ import org.springframework.data.redis.serializer.StringRedisSerializer
 @Configuration
 class RedisConfig {
     @Bean
-    fun reactiveRedisTemplate(
-        factory: ReactiveRedisConnectionFactory
-    ): ReactiveRedisTemplate<String, MemberSession> {
+    fun reactiveRedisTemplate(factory: ReactiveRedisConnectionFactory): ReactiveRedisTemplate<String, MemberSession> {
         val keySerializer = StringRedisSerializer()
         val valueSerializer = Jackson2JsonRedisSerializer(MemberSession::class.java)
 

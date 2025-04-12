@@ -9,6 +9,5 @@ import org.springframework.stereotype.Component
 class MemberShipPersistenceAdapter(
     private val memberShipCustomRepository: MemberShipCustomRepository
 ) : MemberShipQueryPort {
-    override fun findByMemberId(memberId: Long): MemberShip? =
-        memberShipCustomRepository.findByMemberId(memberId)
+    override fun findByMemberId(memberId: Long): MemberShip? = memberShipCustomRepository.findByMemberId(memberId)
 }

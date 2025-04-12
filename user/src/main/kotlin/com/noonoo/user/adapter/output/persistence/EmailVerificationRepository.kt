@@ -10,8 +10,7 @@ import org.jetbrains.exposed.sql.statements.UpdateStatement
 import org.springframework.stereotype.Repository
 
 @Repository
-class EmailVerificationRepository :
-    ExposedCrudRepository<EmailVerificationEntity, EmailVerificationModel> {
+class EmailVerificationRepository : ExposedCrudRepository<EmailVerificationEntity, EmailVerificationModel> {
     override val table = EmailVerificationEntity
 
     override fun toRow(
@@ -36,9 +35,7 @@ class EmailVerificationRepository :
             memberId = row[EmailVerificationEntity.memberId]
         )
 
-    override fun updateRow(
-        domain: EmailVerificationModel
-    ): EmailVerificationEntity.(UpdateStatement) -> Unit =
+    override fun updateRow(domain: EmailVerificationModel): EmailVerificationEntity.(UpdateStatement) -> Unit =
         {
             it[verifiedAt] = domain.verifiedAt
         }

@@ -5,6 +5,5 @@ import org.springframework.stereotype.Component
 
 @Component
 class BcryptEncrypt {
-    fun encrypt(plainText: String): String =
-        BCrypt.withDefaults().hashToString(12, plainText.toCharArray())
+    fun encrypt(plainText: String): String = BCrypt.withDefaults().hashToString(12, plainText.toCharArray())
 }
